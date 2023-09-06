@@ -1,0 +1,36 @@
+micronaut:
+  application:
+    name: micronaut-server-sample
+#  server:
+#    port: 4040
+#    ssl:
+#      port: 5050
+##      enabled: true
+#      key:
+#        password: password
+#      key-store:
+#        path: classpath:keystore.jks
+#        type: jks
+#        password: password
+#      handshake-timeout: 2000
+
+  security:
+    x509:
+      enabled: true # <1>
+
+  ssl:
+    enabled: true # <2>
+
+  server:
+    port: 5050
+    ssl:
+      port: 6060
+      client-authentication: want # <3>
+      key-store:
+        path: classpath:ssl/keystore.p12 # <4>
+        password: 123456 # <5>
+        type: PKCS12 # <6>
+      trust-store:
+        path: classpath:ssl/truststore.jks # <7>
+        password: 123456 # <8>
+        type: JKS # <9>
